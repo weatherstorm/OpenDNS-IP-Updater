@@ -41,16 +41,17 @@ This Python script updates your IP address with OpenDNS.
 
 - **Security**: Keep your configuration file (`config_file`) secure, especially if it contains sensitive information such as your OpenDNS account password.
 
-- ## Troubleshooting
-- **Error fetching current IP address**: If you encounter an error fetching the current IP address, follow these troubleshooting steps:
+## Troubleshooting
+- **Error fetching current IP address: HTTPSConnectionPool(host='api64.ipify.org', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x75e45250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))**: If you encounter this error fetching the current IP address, follow these troubleshooting steps:
     1. Check your internet connection.
     2. Verify DNS configuration:
-        - **Linux**: Edit `/etc/resolv.conf` to set your DNS servers.
-        - **Windows**: Set IPv6 DNS servers in network settings.
+        - **Linux**: Check `/etc/resolv.conf` and make sure the DNS is properly set. If it isn't, edit the .conf with addresses to a DNS server.
+        - **Windows**: Set IPv6 DNS in network settings.
     3. Restart DNS service or flush DNS cache:
         - **Linux**: Restart networking or `systemd-resolved` service.
         - **Windows**: Run `ipconfig /flushdns` and restart your computer.
     4. Test DNS resolution using `nslookup api64.ipify.org` again.
     5. Temporarily disable firewall or security software and test again.
     6. Check router DNS settings or try using a different DNS service.
+
 
